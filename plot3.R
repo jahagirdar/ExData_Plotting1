@@ -15,10 +15,10 @@ data<-read.delim2("household_power_consumption.txt",sep=";",na.strings = "?",ski
   
 
 # Plot 3
-with (data,plot(x=datetime,y=as.numeric(Sub_metering_3),ylab="Energy sub meatering",type="n"))
-with (data,lines(x=datetime,y=as.numeric(Sub_metering_1),col="black"))
-with (data,lines(x=datetime,y=as.numeric(Sub_metering_2),col="red"))
-with (data,lines(x=datetime,y=as.numeric(Sub_metering_3),col="blue"))
+with (data,plot(x=datetime,y=extract_numeric(Sub_metering_1),ylab="Energy sub meatering",xlab="",type="n"))
+with (data,lines(x=datetime,y=extract_numeric(Sub_metering_1),col="black"))
+with (data,lines(x=datetime,y=extract_numeric(Sub_metering_2),col="red"))
+with (data,lines(x=datetime,y=extract_numeric(Sub_metering_3),col="blue"))
 legend("topright",legend=c("Sub metering 1","Sub metering 2","Sub metering 3"),col =c("black","red","blue"),lty=1)
 
   dev.copy(device=png,file="Plot3.png",width=480,height=480)

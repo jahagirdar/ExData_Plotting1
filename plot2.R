@@ -14,7 +14,7 @@ data<-read.delim2("household_power_consumption.txt",sep=";",na.strings = "?",ski
   data<-data[complete.cases(data),]
   
   #Plot 2
- with (data,plot(x=datetime,y=as.numeric(Global_active_power),ylab="Global Active Power (Kilowatts)",xlab="",type="n"))
-with (data,lines(x=datetime,y=as.numeric(Global_active_power)),ylab="Global Active Power (Kilowatts)")
+ with (data,plot(x=datetime,y=extract_numeric(Global_active_power),ylab="Global Active Power (Kilowatts)",xlab="",type="n"))
+with (data,lines(x=datetime,y=extract_numeric(Global_active_power)),ylab="Global Active Power (Kilowatts)")
   dev.copy(device=png,file="Plot2.png",width=480,height=480)
   dev.off()
